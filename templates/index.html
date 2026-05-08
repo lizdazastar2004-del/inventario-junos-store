@@ -25,17 +25,13 @@
     --radius:  18px;
     --shadow:  0 4px 24px rgba(192,132,252,0.13);
   }
-
   * { margin:0; padding:0; box-sizing:border-box; }
-
   body {
     font-family: 'Nunito', sans-serif;
     background: linear-gradient(135deg, #fff0f8 0%, #f0e6ff 40%, #e0f7fa 100%);
     min-height: 100vh;
     color: var(--text);
   }
-
-  /* ── BURBUJAS DECORATIVAS ── */
   body::before {
     content: '';
     position: fixed; inset: 0;
@@ -45,8 +41,6 @@
       radial-gradient(circle at 50% 50%, rgba(192,132,252,0.07) 0%, transparent 60%);
     pointer-events: none; z-index: 0;
   }
-
-  /* ── HEADER ── */
   header {
     position: sticky; top: 0; z-index: 100;
     background: rgba(255,255,255,0.85);
@@ -58,28 +52,24 @@
     justify-content: space-between;
     box-shadow: 0 2px 20px rgba(255,142,196,0.15);
   }
-
-  .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
+  .logo-area { display: flex; align-items: center; gap: 14px; }
   .logo-icon {
-    width: 54px; height: 54px;
-    background: linear-gradient(135deg, var(--pink), var(--purple));
+    width: 58px; height: 58px;
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
+    overflow: hidden;
     box-shadow: 0 4px 14px rgba(255,142,196,0.4);
     animation: float 3s ease-in-out infinite;
+    flex-shrink: 0;
   }
-
+  .logo-icon img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
   @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-4px); }
   }
-
   .logo-text { line-height: 1.1; }
   .logo-name {
     font-family: 'Fredoka One', cursive;
@@ -96,10 +86,7 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-
   .header-actions { display: flex; gap: 10px; align-items: center; }
-
-  /* ── BOTONES ── */
   button {
     font-family: 'Nunito', sans-serif;
     cursor: pointer;
@@ -111,7 +98,6 @@
     align-items: center;
     gap: 6px;
   }
-
   .btn-main {
     background: linear-gradient(135deg, var(--pink), var(--purple));
     color: white;
@@ -120,7 +106,6 @@
     box-shadow: 0 4px 14px rgba(255,142,196,0.4);
   }
   .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,142,196,0.5); }
-
   .btn-outline {
     background: white;
     color: var(--purple);
@@ -129,15 +114,7 @@
     font-size: 0.85rem;
   }
   .btn-outline:hover { border-color: var(--purple); background: var(--purple-l); }
-
-  .btn-sm {
-    padding: 6px 14px;
-    font-size: 0.78rem;
-    border-radius: 30px;
-    font-weight: 800;
-  }
-
-  /* ── STATS ── */
+  .btn-sm { padding: 6px 14px; font-size: 0.78rem; border-radius: 30px; font-weight: 800; }
   .stats-section {
     position: relative; z-index: 1;
     display: grid;
@@ -147,7 +124,6 @@
     max-width: 1300px;
     margin: 0 auto;
   }
-
   .stat-card {
     background: white;
     border-radius: var(--radius);
@@ -175,30 +151,13 @@
   .stat-card:nth-child(4) { border-color: #fee2e2; }
   .stat-card:nth-child(4)::before { background: var(--danger); }
   .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(192,132,252,0.2); }
-
   .stat-icon { font-size: 1.5rem; margin-bottom: 8px; }
   .stat-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
   .stat-value { font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--text); }
   .stat-card:nth-child(3) .stat-value { color: #16a34a; }
   .stat-card:nth-child(4) .stat-value { color: var(--danger); }
-
-  /* ── MAIN ── */
-  main {
-    position: relative; z-index: 1;
-    padding: 0 32px 40px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
-  /* ── TOOLBAR ── */
-  .toolbar {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
+  main { position: relative; z-index: 1; padding: 0 32px 40px; max-width: 1300px; margin: 0 auto; }
+  .toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
   .search-wrap input {
     width: 100%;
@@ -216,12 +175,7 @@
   }
   .search-wrap input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(255,142,196,0.15); }
   .search-wrap input::placeholder { color: var(--muted); }
-  .search-icon {
-    position: absolute; left: 16px; top: 50%;
-    transform: translateY(-50%);
-    font-size: 1rem; color: var(--muted);
-  }
-
+  .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1rem; color: var(--muted); }
   .filter-select {
     background: white;
     border: 2px solid var(--border);
@@ -237,264 +191,63 @@
     transition: border-color 0.2s;
   }
   .filter-select:focus { border-color: var(--purple); }
-
-  /* ── TABLA ── */
-  .table-wrap {
-    background: white;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border: 2px solid var(--border);
-    overflow: hidden;
-  }
-
+  .table-wrap { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 2px solid var(--border); overflow: hidden; }
   table { width: 100%; border-collapse: collapse; }
-
-  thead {
-    background: linear-gradient(90deg, var(--pink-ll), var(--purple-l));
-    border-bottom: 2px solid var(--border);
-  }
-
-  th {
-    padding: 14px 18px;
-    text-align: left;
-    font-size: 0.7rem;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  td {
-    padding: 14px 18px;
-    border-top: 1px solid #fdf0ff;
-    font-size: 0.88rem;
-    font-weight: 600;
-    vertical-align: middle;
-  }
-
+  thead { background: linear-gradient(90deg, var(--pink-ll), var(--purple-l)); border-bottom: 2px solid var(--border); }
+  th { padding: 14px 18px; text-align: left; font-size: 0.7rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  td { padding: 14px 18px; border-top: 1px solid #fdf0ff; font-size: 0.88rem; font-weight: 600; vertical-align: middle; }
   tr:hover td { background: #fff8fe; }
-
   .nombre-cell { font-weight: 800; color: var(--text); }
   .desc-sub { font-size: 0.73rem; font-weight: 600; color: var(--muted); margin-top: 2px; }
-
-  .cat-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-  }
-
+  .cat-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.3px; }
   .qty { font-size: 1rem; font-weight: 900; }
   .qty.low { color: var(--danger); }
   .qty.ok { color: #16a34a; }
   .warn-badge { font-size: 0.65rem; color: var(--danger); font-weight: 800; display: block; }
-
   .price { font-weight: 800; color: #7c3aed; font-size: 0.95rem; }
   .valor { font-weight: 700; color: var(--muted); font-size: 0.85rem; }
-
   .fecha-cell { font-size: 0.8rem; color: var(--muted); font-weight: 700; }
-
   .actions { display: flex; gap: 6px; }
   .btn-edit { background: var(--purple-l); color: var(--purple); border: 1.5px solid #ddd6fe; }
   .btn-edit:hover { background: #ddd6fe; }
   .btn-del { background: #fee2e2; color: var(--danger); border: 1.5px solid #fecaca; }
   .btn-del:hover { background: #fecaca; }
-
-  .empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--muted);
-  }
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
   .empty-state .emoji { font-size: 3.5rem; margin-bottom: 12px; }
   .empty-state p { font-size: 1rem; font-weight: 700; }
-
-  /* ── PANEL DE EXPORTAR Y BACKUP ── */
-  .panels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 24px;
-  }
-
-  .panel {
-    background: white;
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
-    border: 2px solid var(--border);
-  }
-
-  .panel-title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.1rem;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text);
-  }
-
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .panel { background: white; border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 2px solid var(--border); }
+  .panel-title { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; color: var(--text); }
   .export-btns { display: flex; flex-direction: column; gap: 10px; }
-
-  .btn-export {
-    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-    color: #16a34a;
-    border: 2px solid #86efac;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-size: 0.88rem;
-    font-weight: 800;
-    text-align: left;
-    justify-content: flex-start;
-  }
+  .btn-export { background: linear-gradient(135deg, #f0fdf4, #dcfce7); color: #16a34a; border: 2px solid #86efac; padding: 12px 18px; border-radius: 12px; font-size: 0.88rem; font-weight: 800; text-align: left; justify-content: flex-start; }
   .btn-export:hover { transform: translateX(4px); box-shadow: 0 4px 12px rgba(134,239,172,0.3); }
-
-  .btn-export.json {
-    background: linear-gradient(135deg, #eff6ff, #dbeafe);
-    color: #2563eb;
-    border-color: #93c5fd;
-  }
+  .btn-export.json { background: linear-gradient(135deg, #eff6ff, #dbeafe); color: #2563eb; border-color: #93c5fd; }
   .btn-export.json:hover { box-shadow: 0 4px 12px rgba(147,197,253,0.3); }
-
-  .btn-backup {
-    background: linear-gradient(135deg, var(--pink-ll), #fce7f3);
-    color: #db2777;
-    border: 2px solid var(--pink-l);
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-size: 0.88rem;
-    font-weight: 800;
-    text-align: left;
-    justify-content: flex-start;
-    width: 100%;
-    margin-bottom: 12px;
-  }
+  .btn-backup { background: linear-gradient(135deg, var(--pink-ll), #fce7f3); color: #db2777; border: 2px solid var(--pink-l); padding: 12px 18px; border-radius: 12px; font-size: 0.88rem; font-weight: 800; text-align: left; justify-content: flex-start; width: 100%; margin-bottom: 12px; }
   .btn-backup:hover { transform: translateX(4px); box-shadow: 0 4px 12px rgba(255,142,196,0.3); }
-
-  .drive-info {
-    background: var(--yellow-l);
-    border: 2px solid var(--yellow);
-    border-radius: 12px;
-    padding: 12px 16px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #92400e;
-    line-height: 1.5;
-  }
-
+  .drive-info { background: var(--yellow-l); border: 2px solid var(--yellow); border-radius: 12px; padding: 12px 16px; font-size: 0.82rem; font-weight: 700; color: #92400e; line-height: 1.5; }
   .backup-list { margin-top: 14px; }
-  .backup-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background: var(--purple-l);
-    margin-bottom: 6px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .backup-item a {
-    color: var(--purple);
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.75rem;
-  }
+  .backup-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 10px; background: var(--purple-l); margin-bottom: 6px; font-size: 0.78rem; font-weight: 700; color: var(--text); }
+  .backup-item a { color: var(--purple); text-decoration: none; font-weight: 800; font-size: 0.75rem; }
   .backup-item a:hover { text-decoration: underline; }
-
-  /* ── MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(74,48,96,0.4);
-    backdrop-filter: blur(6px);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-  }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(74,48,96,0.4); backdrop-filter: blur(6px); z-index: 200; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
-
-  .modal {
-    background: white;
-    border-radius: 24px;
-    padding: 36px;
-    width: 500px;
-    max-width: 95vw;
-    box-shadow: 0 20px 60px rgba(192,132,252,0.25);
-    border: 2px solid var(--pink-l);
-    animation: popIn 0.25s cubic-bezier(.34,1.56,.64,1);
-  }
-  @keyframes popIn {
-    from { transform: scale(0.88); opacity:0; }
-    to { transform: scale(1); opacity:1; }
-  }
-
-  .modal-title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.4rem;
-    margin-bottom: 24px;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
+  .modal { background: white; border-radius: 24px; padding: 36px; width: 500px; max-width: 95vw; box-shadow: 0 20px 60px rgba(192,132,252,0.25); border: 2px solid var(--pink-l); animation: popIn 0.25s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes popIn { from { transform: scale(0.88); opacity:0; } to { transform: scale(1); opacity:1; } }
+  .modal-title { font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-bottom: 24px; color: var(--text); display: flex; align-items: center; gap: 10px; }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .form-group { display: flex; flex-direction: column; gap: 5px; }
   .form-group.full { grid-column: 1 / -1; }
-
-  label {
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  input[type=text], input[type=number], textarea, select {
-    background: var(--pink-ll);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
+  label { font-size: 0.72rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  input[type=text], input[type=number], textarea, select { background: var(--pink-ll); border: 2px solid var(--border); border-radius: 12px; padding: 10px 14px; color: var(--text); font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 700; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
   input:focus, textarea:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255,142,196,0.2); }
   textarea { resize: vertical; min-height: 70px; }
-
   .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; }
-
-  /* ── TOAST ── */
-  .toast {
-    position: fixed;
-    bottom: 28px; right: 28px;
-    background: white;
-    border: 2px solid var(--pink-l);
-    border-left: 5px solid var(--pink);
-    padding: 14px 20px;
-    border-radius: 14px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--text);
-    z-index: 300;
-    box-shadow: 0 8px 32px rgba(255,142,196,0.25);
-    transform: translateX(120%);
-    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
-    max-width: 320px;
-  }
+  .toast { position: fixed; bottom: 28px; right: 28px; background: white; border: 2px solid var(--pink-l); border-left: 5px solid var(--pink); padding: 14px 20px; border-radius: 14px; font-size: 0.9rem; font-weight: 800; color: var(--text); z-index: 300; box-shadow: 0 8px 32px rgba(255,142,196,0.25); transform: translateX(120%); transition: transform 0.3s cubic-bezier(.34,1.56,.64,1); max-width: 320px; }
   .toast.show { transform: translateX(0); }
   .toast.error { border-left-color: var(--danger); border-color: #fee2e2; }
   .toast.ok { border-left-color: #16a34a; border-color: #d1fae5; }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     header { padding: 12px 16px; }
     .stats-section, main { padding: 16px; }
@@ -507,10 +260,11 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-area">
-    <div class="logo-icon">🐱</div>
+    <div class="logo-icon">
+      <img src="/static/Logo.junos store .png" alt="Juno's Store" onerror="this.parentElement.innerHTML='🐱';this.parentElement.style.background='linear-gradient(135deg,#ff8ec4,#c084fc)';this.parentElement.style.fontSize='1.6rem';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';">
+    </div>
     <div class="logo-text">
       <div class="logo-name">Juno's Store</div>
       <div class="logo-sub">✨ Control de Inventario</div>
@@ -522,7 +276,6 @@
   </div>
 </header>
 
-<!-- STATS -->
 <div class="stats-section">
   <div class="stat-card">
     <div class="stat-icon">🛍️</div>
@@ -546,7 +299,6 @@
   </div>
 </div>
 
-<!-- MAIN -->
 <main>
   <div class="toolbar">
     <div class="search-wrap">
@@ -584,10 +336,7 @@
     </table>
   </div>
 
-  <!-- PANELES -->
   <div class="panels" id="paneles">
-
-    <!-- EXPORTAR -->
     <div class="panel">
       <div class="panel-title">⬇️ Descargar Inventario</div>
       <div class="export-btns">
@@ -601,15 +350,12 @@
         </button>
       </div>
     </div>
-
-    <!-- BACKUP -->
     <div class="panel">
       <div class="panel-title">☁️ Copia de Seguridad</div>
       <button class="btn-backup" onclick="hacerBackup()">
         💾 Guardar copia ahora
         <span style="display:block;font-size:0.7rem;font-weight:600;opacity:0.7">Se guarda en la carpeta /backups</span>
       </button>
-
       <div class="drive-info">
         ☁️ <strong>¿Cómo subir a Google Drive?</strong><br>
         1. Descarga el inventario en CSV o JSON ⬆️<br>
@@ -617,14 +363,11 @@
         3. Arrastra el archivo ahí<br>
         ¡Listo! Tu inventario quedará guardado en la nube 🌟
       </div>
-
       <div class="backup-list" id="backup-list"></div>
     </div>
-
   </div>
 </main>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-title" id="modal-titulo">🐱 Nuevo Producto</div>
@@ -662,7 +405,6 @@
 <script>
 let inventario = [];
 let editandoId = null;
-
 const PALETA = [
   { bg:'#fce7f3', color:'#db2777' },
   { bg:'#ede9fe', color:'#7c3aed' },
@@ -678,7 +420,6 @@ function getColor(cat) {
   if (!catColors[cat]) catColors[cat] = PALETA[palIdx++ % PALETA.length];
   return catColors[cat];
 }
-
 async function cargarDatos() {
   const [r1, r2] = await Promise.all([fetch('/api/productos'), fetch('/api/stats')]);
   inventario = await r1.json();
@@ -691,7 +432,6 @@ async function cargarDatos() {
   filtrar();
   cargarBackups();
 }
-
 function actualizarCategorias() {
   const cats = [...new Set(inventario.map(p => p.categoria))].sort();
   const sel = document.getElementById('catFilter');
@@ -699,7 +439,6 @@ function actualizarCategorias() {
   sel.innerHTML = '<option value="">🏷️ Todas las categorías</option>';
   cats.forEach(c => sel.innerHTML += `<option value="${c}" ${c===val?'selected':''}>${c}</option>`);
 }
-
 function filtrar() {
   const q = document.getElementById('search').value.toLowerCase();
   const cat = document.getElementById('catFilter').value;
@@ -716,7 +455,6 @@ function filtrar() {
   });
   renderTabla(lista);
 }
-
 function renderTabla(lista) {
   const tbody = document.getElementById('tabla-body');
   if (!lista.length) {
@@ -742,19 +480,16 @@ function renderTabla(lista) {
     </tr>`;
   }).join('');
 }
-
 function abrirModal(id=null) {
   editandoId = id;
   document.getElementById('modal-titulo').textContent = id ? '✏️ Editar Producto' : '🐱 Nuevo Producto';
   if (!id) ['nombre','categoria','cantidad','precio','descripcion'].forEach(f => document.getElementById('f-'+f).value='');
   document.getElementById('modal').classList.add('open');
 }
-
 function cerrarModal() {
   document.getElementById('modal').classList.remove('open');
   editandoId = null;
 }
-
 function editarProducto(id) {
   const p = inventario.find(x => x.id===id);
   if (!p) return;
@@ -765,7 +500,6 @@ function editarProducto(id) {
   document.getElementById('f-descripcion').value = p.descripcion;
   abrirModal(id);
 }
-
 async function guardarProducto() {
   const datos = {
     nombre: document.getElementById('f-nombre').value.trim(),
@@ -784,53 +518,40 @@ async function guardarProducto() {
   await cargarDatos();
   toast(editandoId ? '✅ Producto actualizado' : '✅ Producto agregado', 'ok');
 }
-
 async function eliminarProducto(id) {
   if (!confirm('¿Eliminar este producto del inventario? 🗑️')) return;
   await fetch(`/api/productos/${id}`, { method:'DELETE' });
   await cargarDatos();
   toast('🗑️ Producto eliminado');
 }
-
 async function hacerBackup() {
   const res = await fetch('/api/backup/local', {method:'POST'});
   const data = await res.json();
-  if (data.ok) {
-    toast('💾 Copia guardada en /backups', 'ok');
-    cargarBackups();
-  } else {
-    toast('❌ Error al guardar copia', 'error');
-  }
+  if (data.ok) { toast('💾 Copia guardada en /backups', 'ok'); cargarBackups(); }
+  else { toast('❌ Error al guardar copia', 'error'); }
 }
-
 async function cargarBackups() {
   const res = await fetch('/api/backup/lista');
   const lista = await res.json();
   const cont = document.getElementById('backup-list');
   if (!lista.length) { cont.innerHTML = '<p style="font-size:0.78rem;color:var(--muted);font-weight:700;margin-top:8px">Aún no hay copias guardadas</p>'; return; }
   cont.innerHTML = '<div style="font-size:0.72rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:12px 0 8px">Copias recientes</div>' +
-    lista.slice(0,5).map(b => `
-      <div class="backup-item">
-        <span>📁 ${b.fecha}</span>
-        <a href="/api/backup/descargar/${b.nombre}" download>⬇ Descargar</a>
-      </div>`).join('');
+    lista.slice(0,5).map(b => `<div class="backup-item"><span>📁 ${b.fecha}</span><a href="/api/backup/descargar/${b.nombre}" download>⬇ Descargar</a></div>`).join('');
 }
-
-function scrollPanels() {
-  document.getElementById('paneles').scrollIntoView({behavior:'smooth'});
-}
-
+function scrollPanels() { document.getElementById('paneles').scrollIntoView({behavior:'smooth'}); }
 function toast(msg, tipo='') {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show' + (tipo ? ' '+tipo : '');
   setTimeout(() => t.className = 'toast', 3200);
 }
-
 document.getElementById('modal').addEventListener('click', e => {
   if (e.target===document.getElementById('modal')) cerrarModal();
 });
-
+cargarDatos();
+</script>
+</body>
+</html>
 cargarDatos();
 </script>
 </body>
