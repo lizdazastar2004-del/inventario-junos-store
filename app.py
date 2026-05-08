@@ -6,7 +6,7 @@ import io
 import shutil
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "inventario.json")
 BACKUP_DIR = os.path.join(os.path.dirname(__file__), "backups")
